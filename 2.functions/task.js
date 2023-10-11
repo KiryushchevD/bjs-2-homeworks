@@ -1,34 +1,29 @@
-function summElementsWorker(arr) {
-  let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
-    }
-    return sum;
+summElementsWorker: function(arr) {
+  return arr.reduce((a, b) => a + b);
 }
   
-function differenceMaxMinWorker(arr) {
-  const max = Math.max(…arr);
-  const min = Math.min(…arr);
+differenceMaxMinWorker: function(arr) {
+  let max = Math.max(…arr);
+  let min = Math.min(…arr);
     return max - min;
 }
   
-function differenceEvenOddWorker(arr) {
-  let evenSum = 0;
-  let oddSum = 0;
+differenceEvenOddWorker: function(arr) {
+  let sumEven = 0;
+  let sumOdd = 0;
     for (let num of arr) {
-      if (num % 2 === 0) evenSum += num;
-      else oddSum += num;
-    }
-    return evenSum - oddSum;
-}
-  
-function averageEvenElementsWorker(arr) {
-  let evenCount = 0;
-  let evenSum = 0;
-    for (let num of arr) {
-      if (num % 2 === 0) {
-      evenCount++;
-      evenSum += num;
+    if (num % 2 === 0) {
+      sumEven += num;
+    } else {
+      sumOdd += num;
     }
   }
+  return sumEven - sumOdd;
+}
+  
+averageEvenElementsWorker: function(arr) {
+  let evenNumbers = arr.filter((num) => num % 2 === 0);
+    if (evenNumbers.length === 0) {
+    return 0;
+    }
 }
